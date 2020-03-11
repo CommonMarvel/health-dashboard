@@ -1,0 +1,10 @@
+global:
+  slack_api_url: https://hooks.slack.com/services/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
+ 
+route:
+  receiver: "slack"
+
+receivers:
+  - name: "slack"
+    slack_configs:
+    - channel: '#random'
