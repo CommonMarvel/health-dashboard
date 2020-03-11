@@ -1,10 +1,13 @@
 global:
+  # The API URL to use for Slack notifications.
   slack_api_url: https://hooks.slack.com/services/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
- 
+
+# The root node of the routing tree.
 route:
   receiver: "slack"
 
+# A list of notification receivers.
 receivers:
   - name: "slack"
     slack_configs:
-    - channel: '#random'
+      - channel: '#random'
