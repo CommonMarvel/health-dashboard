@@ -12,10 +12,9 @@ alerting:
            - alertmanager:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
-# rule_files:
-#   - "first_rules.yml"
-#   - "second_rules.yml"
-      
+rule_files:
+  - "custom-alert.rules"
+
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it"s Prometheus itself.
 scrape_configs:
@@ -28,3 +27,13 @@ scrape_configs:
   - job_name: "heartbeat"
     static_configs:
       - targets: ["heartbeat:5000"]
+
+  - job_name: "rb88-gateway"
+    metrics_path: "/prometheus"
+    static_configs:
+      - targets: ["shslrbp2.funpo.com:3700"]
+
+  - job_name: "member-service"
+    metrics_path: "/prometheus"
+    static_configs:
+      - targets: ["shslrbp2.funpo.com:2900"]

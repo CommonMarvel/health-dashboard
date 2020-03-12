@@ -1,0 +1,11 @@
+groups:
+- name: example
+  rules:
+    - alert: service_down
+      expr: funpodium == 500
+      for: 10s
+      labels:
+        severity: page
+      annotations:
+        summary: funpodium summary
+        description: funpodium description

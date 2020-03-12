@@ -1,13 +1,17 @@
 global:
   # The API URL to use for Slack notifications.
-  slack_api_url: https://hooks.slack.com/services/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
+  slack_api_url: https://hooks.slack.com/services/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
 
 # The root node of the routing tree.
 route:
+  group_by: ["alertname"]
+  group_wait: 30s
+  group_interval: 1m
+  repeat_interval: 2m
   receiver: "slack"
 
 # A list of notification receivers.
 receivers:
   - name: "slack"
     slack_configs:
-      - channel: '#random'
+      - channel: "#funpodium-test"
