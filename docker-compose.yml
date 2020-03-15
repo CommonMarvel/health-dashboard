@@ -17,12 +17,12 @@ services:
     expose:
       - 9090
     ports:
-      - "9091:9090"
+      - "9090:9090"
     networks:
       - default
     depends_on:
       - alertmanager
-      - heartbeat
+      - health-exporter
 
   alertmanager:
     image: prom/alertmanager:${alertmanager_version}
@@ -35,12 +35,12 @@ services:
     networks:
       - default
         
-  heartbeat:
-    image: jianminhuang/prometheus-heartbeat-exporter:1.0.1
+  health-exporter:
+    image: jianminhuang/health-exporter:latest
     expose:
       - 5000
     environment:
-      - SERVER_INFO={"funpodium":{"url":"https://www.funpodium.net"}}
+      - SERVER_INFO={"funpodium":{"url":"https://www.funpodium.net"},"google":{"url":"https://www.google.com.tw"},"yahoo":{"url":"https://www.yahoo.com.tw"}}
     networks:
       - default
 

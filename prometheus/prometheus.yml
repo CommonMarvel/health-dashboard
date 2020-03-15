@@ -24,16 +24,16 @@ scrape_configs:
     static_configs:
       - targets: ["prometheus:9090"]
 
-  - job_name: "heartbeat"
+  - job_name: "health-exporter"
     static_configs:
-      - targets: ["heartbeat:5000"]
+      - targets: ["health-exporter:5000"]
 
   - job_name: "rb88-gateway"
-    metrics_path: "/prometheus"
+    metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["shslrbp2.funpo.com:3700"]
+      - targets: ["shprbp1.funpo.com:3700"]
 
   - job_name: "member-service"
-    metrics_path: "/prometheus"
+    metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["shslrbp2.funpo.com:2900"]
+      - targets: ["shprbp1.funpo.com:2900"]
